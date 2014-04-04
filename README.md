@@ -1,4 +1,3 @@
 chess
 =====
 
-chess_
