@@ -20,5 +20,8 @@
 *.out
 *.app
 
-#Others
+# Others
 *.log
+.idea/
+./cli/cocos2dx/
+../srv/.idea/
