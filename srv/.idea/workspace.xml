@@ -26,7 +26,7 @@
       <file leaf-file-name="entryHandler.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="51" selection-start="253" selection-end="253" vertical-scroll-proportion="0.49551168" vertical-offset="0" max-vertical-offset="575">
+            <state line="14" column="17" selection-start="322" selection-end="322" vertical-scroll-proportion="0.5780969" vertical-offset="0" max-vertical-offset="575">
               <folding />
             </state>
           </provider>
@@ -340,7 +340,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="51" selection-start="253" selection-end="253" vertical-scroll-proportion="0.49551168" vertical-offset="0" max-vertical-offset="575">
+        <state line="14" column="17" selection-start="322" selection-end="322" vertical-scroll-proportion="0.5780969" vertical-offset="0" max-vertical-offset="575">
           <folding />
         </state>
       </provider>
