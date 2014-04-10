@@ -6,3 +6,5 @@ cocos2d-x-2.2.2\CocosDenshion
 cocos2d-x-2.2.2\scripting
 cocos2d-x-2.2.2\plugin
 cocos2d-x-2.2.2\tools
+
+and then copy all file from Debug.win32 to Resources
