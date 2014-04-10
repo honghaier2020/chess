@@ -22,6 +22,15 @@
 
 # Others
 *.log
-.idea/
-cli/cocos2dx/
 srv/.idea/
+cli/Debug.win32/
+cli/cocos2dx/
+cli/external/
+cli/CocosDenshion/
+cli/extensions/
+cli/scripting/
+cli/plugin/
+cli/tools/
+
+
+
