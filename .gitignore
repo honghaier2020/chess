@@ -25,6 +25,11 @@
 *.pdb
 *.exp
 
+# VS2012 project file
+*.opensdf
+*.sdf
+*.suo
+
 # Others
 *.log
 srv/.idea/
