@@ -17,6 +17,15 @@ public:
     
     // implement the "static node()" method manually
     CREATE_FUNC(HelloWorld);
+
+	//	connect server 
+	void connect(const char* __host,unsigned short __port);
+
+	//	send a message to server,just a test
+	void do_request();
+
+	//	send a notify to server,just a test also
+	void do_notify();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

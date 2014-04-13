@@ -1,0 +1,61 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(deps)", "(deps)", "{01DF18E8-89C6-A25E-0006-40F7C4BCED1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(uv)", "(uv)", "{D5BF94E0-63A0-F682-FBE7-55B17AA44195}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "destroy", "destroy.vcxproj", "{217652FE-4DE4-7609-16BC-20E6035FF5F4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "echo", "echo.vcxproj", "{B3CA2178-011F-F085-06BC-956E1B447EA9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "echo2", "echo2.vcxproj", "{304695DC-87C2-8AE5-4722-3FFA26FB3BCF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jansson", "deps\jansson\jansson.vcxproj", "{3DA9E8B6-0455-D04B-1985-3748BF80674F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpomelo", "libpomelo.vcxproj", "{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libuv", "deps\uv\libuv.vcxproj", "{4E582DA0-68E2-8A52-01DE-340B47888102}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "notify", "notify.vcxproj", "{FE84117A-0944-97A5-E9D2-6B46814F10D9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "request", "request.vcxproj", "{BDB77F4B-1D9A-8AC4-8F8C-C53EC7C85067}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "robot_chat", "robot_chat.vcxproj", "{DADC7666-D457-C7BA-0CAC-5E5E3D463F83}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_protobuf", "test_protobuf.vcxproj", "{926D3039-4E5C-DBD2-4EEB-F7FF6F215E9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Win32 = Default|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{217652FE-4DE4-7609-16BC-20E6035FF5F4}.Default|Win32.ActiveCfg = Default|Win32
+		{217652FE-4DE4-7609-16BC-20E6035FF5F4}.Default|Win32.Build.0 = Default|Win32
+		{B3CA2178-011F-F085-06BC-956E1B447EA9}.Default|Win32.ActiveCfg = Default|Win32
+		{B3CA2178-011F-F085-06BC-956E1B447EA9}.Default|Win32.Build.0 = Default|Win32
+		{304695DC-87C2-8AE5-4722-3FFA26FB3BCF}.Default|Win32.ActiveCfg = Default|Win32
+		{304695DC-87C2-8AE5-4722-3FFA26FB3BCF}.Default|Win32.Build.0 = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Default|Win32.ActiveCfg = Default|Win32
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F}.Default|Win32.Build.0 = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Default|Win32.ActiveCfg = Default|Win32
+		{543F80B6-3DFF-A8DD-BE51-FB9314D6B234}.Default|Win32.Build.0 = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Default|Win32.ActiveCfg = Default|Win32
+		{4E582DA0-68E2-8A52-01DE-340B47888102}.Default|Win32.Build.0 = Default|Win32
+		{FE84117A-0944-97A5-E9D2-6B46814F10D9}.Default|Win32.ActiveCfg = Default|Win32
+		{FE84117A-0944-97A5-E9D2-6B46814F10D9}.Default|Win32.Build.0 = Default|Win32
+		{BDB77F4B-1D9A-8AC4-8F8C-C53EC7C85067}.Default|Win32.ActiveCfg = Default|Win32
+		{BDB77F4B-1D9A-8AC4-8F8C-C53EC7C85067}.Default|Win32.Build.0 = Default|Win32
+		{DADC7666-D457-C7BA-0CAC-5E5E3D463F83}.Default|Win32.ActiveCfg = Default|Win32
+		{DADC7666-D457-C7BA-0CAC-5E5E3D463F83}.Default|Win32.Build.0 = Default|Win32
+		{926D3039-4E5C-DBD2-4EEB-F7FF6F215E9B}.Default|Win32.ActiveCfg = Default|Win32
+		{926D3039-4E5C-DBD2-4EEB-F7FF6F215E9B}.Default|Win32.Build.0 = Default|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5BF94E0-63A0-F682-FBE7-55B17AA44195} = {01DF18E8-89C6-A25E-0006-40F7C4BCED1B}
+		{3DA9E8B6-0455-D04B-1985-3748BF80674F} = {01DF18E8-89C6-A25E-0006-40F7C4BCED1B}
+		{4E582DA0-68E2-8A52-01DE-340B47888102} = {D5BF94E0-63A0-F682-FBE7-55B17AA44195}
+	EndGlobalSection
+EndGlobal

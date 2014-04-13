@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{7bda0c31-e93c-4345-87b3-c65d49c5e912}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -19,6 +22,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\net\net_impl.cpp">
+      <Filter>net</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +39,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AppMacros.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\net\net_impl.h">
+      <Filter>net</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

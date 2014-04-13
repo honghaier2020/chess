@@ -3,6 +3,7 @@
 #include "CocosGUI.h"
 #include "UIWidget.h"
 #include "SceneReader.h"
+#include "../net/net_impl.h"
 USING_NS_CC;
 
 
@@ -31,7 +32,7 @@ bool HelloWorld::init()
         return false;
     }
 
-	if(1)
+	if(0)
 	{
 	//	use cocos stdio ui editor 
 /*
@@ -94,6 +95,16 @@ bool HelloWorld::init()
 
 		// add the sprite as a child to this layer
 		this->addChild(pSprite, 0);
+
+		//	connect to server and do something
+		this->connect("127.0.0.1",3010);
+		if(0){
+			this->do_notify();
+		}
+		else{
+			this->do_request();
+		}
+		
 	}
     return true;
 }
@@ -109,4 +120,19 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
     exit(0);
 #endif
 #endif
+}
+
+void HelloWorld::connect( const char* __host,unsigned short __port )
+{
+	chess::NetImpl::instance()->connect(__host,__port);
+}
+
+void HelloWorld::do_request()
+{
+	chess::NetImpl::instance()->do_request();
+}
+
+void HelloWorld::do_notify()
+{
+	chess::NetImpl::instance()->do_notify();
 }

@@ -35,8 +35,6 @@
 srv/.idea/
 srv/game-server/node_modules/
 srv/web-server/node_modules/
-cli/Debug.win32/
-cli/proj.win32/Debug.win32/
 cli/cocos2dx/
 cli/external/
 cli/CocosDenshion/
@@ -45,6 +43,11 @@ cli/scripting/
 cli/plugin/
 cli/tools/
 cli/samples/
-
+cli/Debug.win32/
+cli/proj.win32/Debug.win32/
+cli/proj.win32/Default/
+cli/libpomelo/Default/
+cli/libpomelo/deps/jansson/Default/
+cli/libpomelo/deps/uv/Default/
 
 
