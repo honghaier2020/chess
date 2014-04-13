@@ -2,6 +2,7 @@
 #include "AppMacros.h"
 #include "CocosGUI.h"
 #include "UIWidget.h"
+#include "SceneReader.h"
 USING_NS_CC;
 
 
@@ -29,79 +30,71 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(HelloWorld::menuCloseCallback));
-    
-	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-    // 
-	//   m_dir = 1;
-	/*
-	CCSize s = CCDirector::sharedDirector()->getWinSize();
-
-	float step = s.width/11;
-	
-	for(int i=0;i<5;i++) 
+	if(1)
 	{
-		CCSprite* sprite = CCSprite::create("grossini_dance_atlas.png", CCRectMake(85*0, 121*1, 85, 121));
-		sprite->setPosition( ccp( (i+1)*step, s.height/2) );
-		addChild(sprite, i);
+	//	use cocos stdio ui editor 
+/*
+	before the version 2.1.5a, maybe it looks like:
+	CCNode *pNode = CCJsonReader::sharedJsonReader()->createNodeWithJsonFile("NewProject_1.json"); 
+	this->addChild(pNode); 
+
+	cocos2dx 2.1.5a Update:
+	1. CCJsonReader modify to CCSSceneReader. B+EGmQTN  
+	2. CCJsonReader ::sharedSceneReader modify to CCSSceneReader::sharedSceneReader(). 
+	3. CCJsonReader::purgeJsonReader modify to CCSSceneReader::purgeSceneReader. 
+	4. CCJsonReader::createNodeWithJsonFile modify to CCSSceneReader::createNodeWithSceneFile. 
+*/
+		CCNode *pNode = cocos2d::extension::SceneReader::sharedSceneReader()->createNodeWithSceneFile("ui\\NewProject_1.json"); 
+		this->addChild(pNode); 
 	}
+	else{
+		CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+		CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-	for(int i=5;i<6;i++) 
-	{
-		CCSprite* sprite = CCSprite::create("grossini_dance_atlas.png", CCRectMake(85*1, 121*0, 85, 121));
-		sprite->setPosition( ccp( s.width/2, s.height/2) );
-		addChild(sprite, i);
+		/////////////////////////////
+		// 2. add a menu item with "X" image, which is clicked to quit the program
+		//    you may modify it.
+
+		// add a "close" icon to exit the progress. it's an autorelease object
+		CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+			"CloseNormal.png",
+			"CloseSelected.png",
+			this,
+			menu_selector(HelloWorld::menuCloseCallback));
+
+		pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
+			origin.y + pCloseItem->getContentSize().height/2));
+
+		// create menu, it's an autorelease object
+		CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+		pMenu->setPosition(CCPointZero);
+		this->addChild(pMenu, 1);
+
+		/////////////////////////////
+		// 3. add your codes below...
+
+		// add a label shows "Hello World"
+		// create and initialize a label
+
+		CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", TITLE_FONT_SIZE);
+
+		// position the label on the center of the screen
+		pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
+			origin.y + visibleSize.height - pLabel->getContentSize().height));
+
+		// add the label as a child to this layer
+		this->addChild(pLabel, 1);
+
+		// add "HelloWorld" splash screen"
+		CCSprite* pSprite = CCSprite::create("HelloWorld.png");
+
+		// position the sprite on the center of the screen
+		pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+
+		// add the sprite as a child to this layer
+		this->addChild(pSprite, 0);
 	}
-	
-	CCSprite* sprite = CCSprite::create("grossini_dance_atlas.png", CCRectMake(85*3, 121*0, 85, 121));
-	addChild(sprite, -1, 1);
-	sprite->setPosition( ccp(s.width/2, s.height/2 - 20) );
-	sprite->setScaleX( 6 );
-	sprite->setColor(ccRED);
-	*/
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", TITLE_FONT_SIZE);
-    
-    // position the label on the center of the screen
-    pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - pLabel->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-
-    // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
-    
     return true;
 }
 
