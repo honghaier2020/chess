@@ -49,5 +49,8 @@ cli/proj.win32/Default/
 cli/libpomelo/Default/
 cli/libpomelo/deps/jansson/Default/
 cli/libpomelo/deps/uv/Default/
+cli/Resources/clientProtos
+cli/Resources/protoVersion
+cli/Resources/serverProtos
 
 
