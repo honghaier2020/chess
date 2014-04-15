@@ -29,6 +29,7 @@ THE SOFTWARE.
 
 #include "HelloWorldScene.h"
 #include "AppMacros.h"
+#include "../net/net_impl.h"
 
 USING_NS_CC;
 using namespace std;
@@ -39,6 +40,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate() 
 {
+	chess::NetImpl::destroy();
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {

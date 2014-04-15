@@ -41,7 +41,7 @@ bool HelloWorld::init()
 	this->addChild(pNode); 
 
 	cocos2dx 2.1.5a Update:
-	1. CCJsonReader modify to CCSSceneReader. B+EGmQTN  
+	1. CCJsonReader modify to CCSSceneReader. 
 	2. CCJsonReader ::sharedSceneReader modify to CCSSceneReader::sharedSceneReader(). 
 	3. CCJsonReader::purgeJsonReader modify to CCSSceneReader::purgeSceneReader. 
 	4. CCJsonReader::createNodeWithJsonFile modify to CCSSceneReader::createNodeWithSceneFile. 
@@ -97,7 +97,7 @@ bool HelloWorld::init()
 		this->addChild(pSprite, 0);
 
 		//	connect to server and do something
-		this->connect("127.0.0.1",3010);
+		this->connect("192.168.20.155",3010);
 		if(0){
 			this->do_notify();
 		}

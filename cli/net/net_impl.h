@@ -34,6 +34,9 @@ namespace chess{
 		// send a notify
 		void do_notify();
 
+		//	test code
+		void do_request_test();
+
 	public:
 		//	callback function
 		static void on_hey(pc_client_t* __client, const char* __events, void* __data);
@@ -46,13 +49,16 @@ namespace chess{
 
 		//	notify callback 
 		static void on_notified(pc_notify_t* __req, int __status);
-
 	private:
 		//	pomelo client instance
 		pc_client_t* client_;
 
 		//	singleton instance
 		static NetImpl* inst_;
+
+		//	disable copy construction and copy assignment
+		NetImpl(const NetImpl&);
+		NetImpl& operator = (const NetImpl&);
 	};
 }
 

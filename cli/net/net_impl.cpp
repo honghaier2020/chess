@@ -67,16 +67,15 @@ namespace chess {
 	void NetImpl::do_request()
 	{
 		// compose request
-		const char* __route = "connector.entryHandler.hi";
+		const char* __route = "connector.entryHandler.entry";
 		json_t* __msg = json_object();
-		json_t* __str = json_string("hi~");
-		json_object_set(__msg, "msg", __str);
+		json_t* __msg_id = json_integer(0);
+		json_object_set(__msg, "msg_id", __msg_id);
 		// decref for json object
-		json_decref(__str);
+		json_decref(__msg_id);
 
 		pc_request_t* __request = pc_request_new();
 		pc_request(client_, __request, __route, __msg, on_request_cb);
-
 	}
 
 	void NetImpl::on_request_cb( pc_request_t* __req, int __status, json_t* __resp )
@@ -131,4 +130,22 @@ namespace chess {
 		pc_notify_destroy(__req);
 
 	}
+
+	void NetImpl::do_request_test()
+	{
+		// compose request
+		const char* __route = "connector.entryHandler.hi";
+		json_t* __msg = json_object();
+		json_t* __str_hi = json_string("hi~");
+		json_t* __str_your_name = json_string("machine");
+		json_object_set(__msg, "context1", __str_hi);
+		json_object_set(__msg, "context2", __str_your_name);
+		// decref for json object
+		json_decref(__str_hi);
+		json_decref(__str_your_name);
+
+		pc_request_t* __request = pc_request_new();
+		pc_request(client_, __request, __route, __msg, on_request_cb);
+	}
+
 }

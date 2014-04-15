@@ -1,5 +1,4 @@
 var pomelo = require('pomelo');
-
 /**
  * Init app for client.
  */
