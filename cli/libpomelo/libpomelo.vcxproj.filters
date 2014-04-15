@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{140416ea-efa8-4fb0-bb9c-0a97e69d34e8}</UniqueIdentifier>
+      <UniqueIdentifier>{6d061399-9f44-4620-ae93-e8ce3166b87d}</UniqueIdentifier>
     </Filter>
     <Filter Include="include">
-      <UniqueIdentifier>{c4ca6703-19c1-4f59-8d4a-bec006a87cef}</UniqueIdentifier>
+      <UniqueIdentifier>{cfac5aa3-b647-4e36-a61b-a9b226dc64e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\pomelo-protocol">
-      <UniqueIdentifier>{ec7dd587-cc79-41c9-9e6d-f913f79943a0}</UniqueIdentifier>
+      <UniqueIdentifier>{15e6d95f-29cc-454f-8459-efef99d97e94}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\pomelo-private">
-      <UniqueIdentifier>{6719a675-899d-4108-b91d-0b433bc7e375}</UniqueIdentifier>
+      <UniqueIdentifier>{2aa8c093-198f-454e-a349-50462506c408}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\pomelo-protobuf">
-      <UniqueIdentifier>{c0e57147-8cc5-4ac0-8664-d0d156e73f11}</UniqueIdentifier>
+      <UniqueIdentifier>{f7f2774b-7521-4879-8040-8154f175f7dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{71b7c831-dcc6-4e31-859f-00c962af53d6}</UniqueIdentifier>
+      <UniqueIdentifier>{c9ecc3b0-4fd8-41e6-84e7-681e66b070d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
