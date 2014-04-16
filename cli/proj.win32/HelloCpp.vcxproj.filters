@@ -12,6 +12,9 @@
     <Filter Include="net">
       <UniqueIdentifier>{7bda0c31-e93c-4345-87b3-c65d49c5e912}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{4167ee6d-2afb-4c3e-a5e3-b5923a7d8225}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -25,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="..\net\net_impl.cpp">
       <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ui\login_scene.cpp">
+      <Filter>ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +48,9 @@
     </ClInclude>
     <ClInclude Include="..\net\net_impl.h">
       <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ui\login_scene.h">
+      <Filter>ui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

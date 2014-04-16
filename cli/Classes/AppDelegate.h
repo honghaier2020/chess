@@ -32,6 +32,16 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+
+	//	other interface
+	//	connect server 
+	void connect(const char* __host,unsigned short __port);
+
+	//	send a message to server,just a test
+	void do_request();
+
+	//	send a notify to server,just a test also
+	void do_notify();
 };
 
 #endif // _APP_DELEGATE_H_

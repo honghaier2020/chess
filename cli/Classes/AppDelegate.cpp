@@ -104,6 +104,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     pDirector->runWithScene(pScene);
 
+	//	connect to server and do something
+	this->connect("192.168.20.155",3010);
+	if(0){
+		this->do_notify();
+	}
+	else{
+		this->do_request();
+	}
+
     return true;
 }
 
@@ -121,4 +130,19 @@ void AppDelegate::applicationWillEnterForeground() {
 
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+}
+
+void AppDelegate::connect( const char* __host,unsigned short __port )
+{
+	chess::NetImpl::instance()->connect(__host,__port);
+}
+
+void AppDelegate::do_request()
+{
+	chess::NetImpl::instance()->do_request();
+}
+
+void AppDelegate::do_notify()
+{
+	chess::NetImpl::instance()->do_notify();
 }
