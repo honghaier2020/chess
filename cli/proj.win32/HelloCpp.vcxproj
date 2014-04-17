@@ -131,6 +131,7 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\net\net_impl.cpp" />
+    <ClCompile Include="..\ui\CocosGUIExamplesRegisterScene.cpp" />
     <ClCompile Include="..\ui\login_scene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\net\net_impl.h" />
+    <ClInclude Include="..\ui\CocosGUIExamplesRegisterScene.h" />
     <ClInclude Include="..\ui\login_scene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -25,14 +25,9 @@ namespace chess{
 
 		virtual void onExit();
 
-		// a selector callback
-		void menuCloseCallback(cocos2d::CCObject* pSender, cocos2d::ui::TouchEventType type);
-
-		void textFieldEvent(cocos2d::CCObject* pSender, cocos2d::ui::TextFiledEventType type);
-
 	private:
-		cocos2d::ui::TouchGroup* ui_layer_;
-		cocos2d::ui::Layout* layout_;
+		cocos2d::ui::TouchGroup*	ui_layer_;
+		cocos2d::ui::Layout*		layout_;
 	};
 }
 

@@ -6,16 +6,6 @@ using namespace ui;
 
 namespace chess
 {
-	void LoginScene::menuCloseCallback( cocos2d::CCObject* pSender, cocos2d::ui::TouchEventType type )
-	{
-
-	}
-
-	void LoginScene::textFieldEvent( cocos2d::CCObject* pSender, cocos2d::ui::TextFiledEventType type )
-	{
-
-	}
-
 
 	LoginScene::LoginScene():ui_layer_(NULL),layout_(NULL)
 	{
@@ -31,7 +21,7 @@ namespace chess
 	{
 		CCScene::onEnter();
 		ui_layer_ = TouchGroup::create();
-		layout_->scheduleUpdate();
+		ui_layer_->scheduleUpdate();
 		addChild(ui_layer_);
 
 		// register root from json
@@ -41,7 +31,11 @@ namespace chess
 
 	void LoginScene::onExit()
 	{
+		ui_layer_->removeFromParent();
+		SceneReader::sharedSceneReader()->purge();
+		GUIReader::shareReader()->purge();
+		cocos2d::extension::ActionManager::shareManager()->purge();
 
+		CCScene::onExit();
 	}
-		
 }
