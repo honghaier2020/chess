@@ -14,6 +14,9 @@ app.configure('production|development', 'connector', function(){
       useDict : true,
       useProtobuf : true
     });
+    app.loadConfig('redis', app.getBase() + '/config/redis.json');
+    console.log("config load for redis  %s", app.getBase() + '/config/redis.json');
+    require('./app/nosql/redis_pools').configure(app.get('redis'));
 });
 
 // start app
