@@ -47,6 +47,7 @@ cli/Debug.win32/
 cli/proj.win32/Debug.win32/
 cli/proj.win32/Default/
 cli/libpomelo/Default/
+cli/ipch/
 cli/libpomelo/deps/jansson/Default/
 cli/libpomelo/deps/uv/Default/
 cli/Resources/clientProtos
