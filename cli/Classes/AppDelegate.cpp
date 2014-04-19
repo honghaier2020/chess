@@ -29,9 +29,10 @@ THE SOFTWARE.
 
 #include "HelloWorldScene.h"
 #include "AppMacros.h"
-#include "../net/net_impl.h"
-#include "../ui/login_scene.h"
-#include "../ui/CocosGUIExamplesRegisterScene.h"
+#include "../src/net/net_impl.h"
+#include "../src/ui/login_scene.h"
+#include "../src/json/json_server.h"
+#include "../src/util/msg.h"
 
 USING_NS_CC;
 using namespace std;
@@ -43,137 +44,104 @@ AppDelegate::AppDelegate() {
 AppDelegate::~AppDelegate() 
 {
 	chess::NetImpl::destroy();
+	chess::JsonServer::destroy();
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-	if(1)
-	{
-		// initialize director
-		CCDirector* pDirector = CCDirector::sharedDirector();
-		CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+	// initialize director
+	CCDirector* pDirector = CCDirector::sharedDirector();
+	CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
 
-		pDirector->setOpenGLView(pEGLView);
-		CCSize frameSize = pEGLView->getFrameSize();
-		// Set the design resolution
+	pDirector->setOpenGLView(pEGLView);
+	CCSize frameSize = pEGLView->getFrameSize();
+	// Set the design resolution
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-		pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionShowAll);
+	pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionShowAll);
 #else
-		pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+	pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
 #endif
 
-		vector<string> searchPath;
+	vector<string> searchPath;
 
-		// In this demo, we select resource according to the frame's height.
-		// If the resource size is different from design resolution size, you need to set contentScaleFactor.
-		// We use the ratio of resource's height to the height of design resolution,
-		// this can make sure that the resource's height could fit for the height of design resolution.
+	// In this demo, we select resource according to the frame's height.
+	// If the resource size is different from design resolution size, you need to set contentScaleFactor.
+	// We use the ratio of resource's height to the height of design resolution,
+	// this can make sure that the resource's height could fit for the height of design resolution.
 
-		// if the frame's height is larger than the height of medium resource size, select large resource.
-		if (frameSize.height > mediumResource.size.height)
-		{
-			searchPath.push_back(largeResource.directory);
+	// if the frame's height is larger than the height of medium resource size, select large resource.
+	if (frameSize.height > mediumResource.size.height)
+	{
+		searchPath.push_back(largeResource.directory);
 
-			pDirector->setContentScaleFactor(MIN(largeResource.size.height/designResolutionSize.height, largeResource.size.width/designResolutionSize.width));
-		}
-		// if the frame's height is larger than the height of small resource size, select medium resource.
-		else if (frameSize.height > smallResource.size.height)
-		{
-			searchPath.push_back(mediumResource.directory);
-
-			pDirector->setContentScaleFactor(MIN(mediumResource.size.height/designResolutionSize.height, mediumResource.size.width/designResolutionSize.width));
-		}
-		// if the frame's height is smaller than the height of medium resource size, select small resource.
-		else
-		{
-			searchPath.push_back(smallResource.directory);
-
-			pDirector->setContentScaleFactor(MIN(smallResource.size.height/designResolutionSize.height, smallResource.size.width/designResolutionSize.width));
-		}
-
-		// set searching path
-		CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
-
-		// turn on display FPS
-		pDirector->setDisplayStats(true);
-
-		// set FPS. the default value is 1.0/60 if you don't call this
-		pDirector->setAnimationInterval(1.0 / 60);
-		/*
-		// create a scene. it's an autorelease object
-		CCScene *pScene = HelloWorld::scene();
-		*/
-		CCScene* __scene = new chess::LoginScene();
-		__scene->autorelease();
-		// run
-		pDirector->runWithScene(__scene);
+		pDirector->setContentScaleFactor(MIN(largeResource.size.height/designResolutionSize.height, largeResource.size.width/designResolutionSize.width));
 	}
+	// if the frame's height is larger than the height of small resource size, select medium resource.
+	else if (frameSize.height > smallResource.size.height)
+	{
+		searchPath.push_back(mediumResource.directory);
+
+		pDirector->setContentScaleFactor(MIN(mediumResource.size.height/designResolutionSize.height, mediumResource.size.width/designResolutionSize.width));
+	}
+	// if the frame's height is smaller than the height of medium resource size, select small resource.
 	else
 	{
-		// initialize director
-		CCDirector* pDirector = CCDirector::sharedDirector();
-		CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+		searchPath.push_back(smallResource.directory);
 
-		pDirector->setOpenGLView(pEGLView);
-
-		CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
-
-		CCSize designSize = CCSizeMake(480, 320);
-
-		CCFileUtils* pFileUtils = CCFileUtils::sharedFileUtils();
-
-
-		if (screenSize.height > 320)
-		{
-			CCSize resourceSize = CCSizeMake(960, 640);
-			std::vector<std::string> searchPaths;
-			searchPaths.push_back("hd");
-			pFileUtils->setSearchPaths(searchPaths);
-			pDirector->setContentScaleFactor(resourceSize.height/designSize.height);
-		}
-
-		CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionShowAll);
-
-		// turn on display FPS
-		//    pDirector->setDisplayStats(true);
-
-		// set FPS. the default value is 1.0/60 if you don't call this
-		pDirector->setAnimationInterval(1.0 / 60);
-
-		// create a scene. it's an autorelease object
-		//    CCScene *pScene = HelloWorld::scene();
-		CocosGUIExamplesRegisterScene *pScene = new CocosGUIExamplesRegisterScene();
-		pScene->autorelease();
-
-		// run
-		pDirector->runWithScene(pScene);
+		pDirector->setContentScaleFactor(MIN(smallResource.size.height/designResolutionSize.height, smallResource.size.width/designResolutionSize.width));
 	}
 
+	// set searching path
+	CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
+
+	// turn on display FPS
+	pDirector->setDisplayStats(true);
+
+	// set FPS. the default value is 1.0/60 if you don't call this
+	pDirector->setAnimationInterval(1.0 / 60);
+	/*
+	// create a scene. it's an autorelease object
+	CCScene *pScene = HelloWorld::scene();
+	*/
+	CCScene* __scene = new chess::LoginScene();
+	__scene->autorelease();
+	// run
+	pDirector->runWithScene(__scene);
 	//	connect to server and do something
-	this->connect("192.168.20.155",3010);
+	chess::JsonServer* __json_server = chess::JsonServer::instance("./config/server.json");
+	if(__json_server)
+	{
+		this->connect(__json_server->host(),__json_server->port());
+	}
+	
 	if(0){
 		this->do_notify();
 	}
 	else{
-		this->do_request();
+		json_t* __msg = json_object();
+		json_t* __msg_id = json_integer(MSG_ID::MSG_LOGIN);
+		json_object_set(__msg, "msg_id", __msg_id);
+		// decref for json object
+		json_decref(__msg_id);
+		this->do_request(__msg);
 	}
 
-    return true;
+	return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
-    CCDirector::sharedDirector()->stopAnimation();
+	CCDirector::sharedDirector()->stopAnimation();
 
-    // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+	// if you use SimpleAudioEngine, it must be pause
+	// SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
-    CCDirector::sharedDirector()->startAnimation();
+	CCDirector::sharedDirector()->startAnimation();
 
-    // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+	// if you use SimpleAudioEngine, it must resume here
+	// SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
 
 void AppDelegate::connect( const char* __host,unsigned short __port )
@@ -181,9 +149,9 @@ void AppDelegate::connect( const char* __host,unsigned short __port )
 	chess::NetImpl::instance()->connect(__host,__port);
 }
 
-void AppDelegate::do_request()
+void AppDelegate::do_request(json_t* __msg)
 {
-	chess::NetImpl::instance()->do_request();
+	chess::NetImpl::instance()->do_request(__msg);
 }
 
 void AppDelegate::do_notify()

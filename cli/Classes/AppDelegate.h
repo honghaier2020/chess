@@ -2,6 +2,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include <jansson.h>
 
 /**
 @brief    The cocos2d Application.
@@ -38,7 +39,7 @@ public:
 	void connect(const char* __host,unsigned short __port);
 
 	//	send a message to server,just a test
-	void do_request();
+	void do_request(json_t* __msg);
 
 	//	send a notify to server,just a test also
 	void do_notify();

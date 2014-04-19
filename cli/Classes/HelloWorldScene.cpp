@@ -32,70 +32,51 @@ bool HelloWorld::init()
         return false;
     }
 
-	if(0)
-	{
-	//	use cocos stdio ui editor 
-/*
-	before the version 2.1.5a, maybe it looks like:
-	CCNode *pNode = CCJsonReader::sharedJsonReader()->createNodeWithJsonFile("NewProject_1.json"); 
-	this->addChild(pNode); 
+	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-	cocos2dx 2.1.5a Update:
-	1. CCJsonReader modify to CCSSceneReader. 
-	2. CCJsonReader ::sharedSceneReader modify to CCSSceneReader::sharedSceneReader(). 
-	3. CCJsonReader::purgeJsonReader modify to CCSSceneReader::purgeSceneReader. 
-	4. CCJsonReader::createNodeWithJsonFile modify to CCSSceneReader::createNodeWithSceneFile. 
-*/
-		CCNode *pNode = cocos2d::extension::SceneReader::sharedSceneReader()->createNodeWithSceneFile("ui\\NewProject_1.json"); 
-		this->addChild(pNode); 
-	}
-	else{
-		CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-		CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	/////////////////////////////
+	// 2. add a menu item with "X" image, which is clicked to quit the program
+	//    you may modify it.
 
-		/////////////////////////////
-		// 2. add a menu item with "X" image, which is clicked to quit the program
-		//    you may modify it.
+	// add a "close" icon to exit the progress. it's an autorelease object
+	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+		"CloseNormal.png",
+		"CloseSelected.png",
+		this,
+		menu_selector(HelloWorld::menuCloseCallback));
 
-		// add a "close" icon to exit the progress. it's an autorelease object
-		CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-			"CloseNormal.png",
-			"CloseSelected.png",
-			this,
-			menu_selector(HelloWorld::menuCloseCallback));
+	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
+		origin.y + pCloseItem->getContentSize().height/2));
 
-		pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-			origin.y + pCloseItem->getContentSize().height/2));
+	// create menu, it's an autorelease object
+	CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+	pMenu->setPosition(CCPointZero);
+	this->addChild(pMenu, 1);
 
-		// create menu, it's an autorelease object
-		CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-		pMenu->setPosition(CCPointZero);
-		this->addChild(pMenu, 1);
+	/////////////////////////////
+	// 3. add your codes below...
 
-		/////////////////////////////
-		// 3. add your codes below...
+	// add a label shows "Hello World"
+	// create and initialize a label
 
-		// add a label shows "Hello World"
-		// create and initialize a label
+	CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", TITLE_FONT_SIZE);
 
-		CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", TITLE_FONT_SIZE);
+	// position the label on the center of the screen
+	pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
+		origin.y + visibleSize.height - pLabel->getContentSize().height));
 
-		// position the label on the center of the screen
-		pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
-			origin.y + visibleSize.height - pLabel->getContentSize().height));
+	// add the label as a child to this layer
+	this->addChild(pLabel, 1);
 
-		// add the label as a child to this layer
-		this->addChild(pLabel, 1);
+	// add "HelloWorld" splash screen"
+	CCSprite* pSprite = CCSprite::create("HelloWorld.png");
 
-		// add "HelloWorld" splash screen"
-		CCSprite* pSprite = CCSprite::create("HelloWorld.png");
+	// position the sprite on the center of the screen
+	pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-		// position the sprite on the center of the screen
-		pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-		// add the sprite as a child to this layer
-		this->addChild(pSprite, 0);
-	}
+	// add the sprite as a child to this layer
+	this->addChild(pSprite, 0);
     return true;
 }
 

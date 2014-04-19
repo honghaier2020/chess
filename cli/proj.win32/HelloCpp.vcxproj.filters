@@ -9,11 +9,20 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="net">
-      <UniqueIdentifier>{7bda0c31-e93c-4345-87b3-c65d49c5e912}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{423a14e6-fa04-464d-b463-5d838d52fc01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ui">
-      <UniqueIdentifier>{4167ee6d-2afb-4c3e-a5e3-b5923a7d8225}</UniqueIdentifier>
+    <Filter Include="src\net">
+      <UniqueIdentifier>{e3046738-f11d-4683-b4c2-c15e53941ed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{3c88fa3e-d024-4eac-ab67-3ed21527682e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui">
+      <UniqueIdentifier>{a86b10c9-745f-41c4-964d-ccb508156cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\json">
+      <UniqueIdentifier>{f2b6a50b-7583-4500-bedb-5091ae3fd5d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -26,14 +35,14 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\net\net_impl.cpp">
-      <Filter>net</Filter>
+    <ClCompile Include="..\src\net\net_impl.cpp">
+      <Filter>src\net</Filter>
     </ClCompile>
-    <ClCompile Include="..\ui\CocosGUIExamplesRegisterScene.cpp">
-      <Filter>ui</Filter>
+    <ClCompile Include="..\src\ui\login_scene.cpp">
+      <Filter>src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\ui\login_scene.cpp">
-      <Filter>ui</Filter>
+    <ClCompile Include="..\src\json\json_server.cpp">
+      <Filter>src\json</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,14 +58,20 @@
     <ClInclude Include="..\Classes\AppMacros.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\net\net_impl.h">
-      <Filter>net</Filter>
+    <ClInclude Include="..\src\net\net_impl.h">
+      <Filter>src\net</Filter>
     </ClInclude>
-    <ClInclude Include="..\ui\CocosGUIExamplesRegisterScene.h">
-      <Filter>ui</Filter>
+    <ClInclude Include="..\src\ui\login_scene.h">
+      <Filter>src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\ui\login_scene.h">
-      <Filter>ui</Filter>
+    <ClInclude Include="..\src\json\json_base.h">
+      <Filter>src\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\json\json_server.h">
+      <Filter>src\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\util\msg.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
