@@ -70,7 +70,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\cocos2dx;$(ProjectDir)..\cocos2dx\include;$(ProjectDir)..\cocos2dx\kazmath\include;$(ProjectDir)..\cocos2dx\platform\win32;$(ProjectDir)..\cocos2dx\platform\third_party\win32\OGLES;..\Classes;$(ProjectDir)..\extensions\CocoStudio\GUI\BaseClasses;$(ProjectDir)..\extensions\CocoStudio\GUI\Layouts;$(ProjectDir)..\extensions\CocoStudio\GUI\System;$(ProjectDir)..\extensions\CocoStudio\GUI\UIWidgets;$(ProjectDir)..\extensions\CocoStudio\Reader;$(ProjectDir)..\extensions\CocoStudio;$(ProjectDir)..\extensions\;$(ProjectDir)..\libpomelo\deps\jansson\src;$(ProjectDir)..\libpomelo\deps\uv\include;$(ProjectDir)..\libpomelo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\cocos2dx;$(ProjectDir)..\cocos2dx\include;$(ProjectDir)..\cocos2dx\kazmath\include;$(ProjectDir)..\cocos2dx\platform\win32;$(ProjectDir)..\cocos2dx\platform\third_party\win32\OGLES;..\Classes;$(ProjectDir)..\extensions\CocoStudio\GUI\BaseClasses;$(ProjectDir)..\extensions\CocoStudio\GUI\Layouts;$(ProjectDir)..\extensions\CocoStudio\GUI\System;$(ProjectDir)..\extensions\CocoStudio\GUI\UIWidgets;$(ProjectDir)..\extensions\CocoStudio\Reader;$(ProjectDir)..\extensions\CocoStudio;$(ProjectDir)..\extensions\;$(ProjectDir)..\libpomelo\deps\jansson\src;$(ProjectDir)..\libpomelo\deps\uv\include;$(ProjectDir)..\libpomelo\include;$(ProjectDir)..\cocos2dx\platform\third_party\win32\curl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -82,7 +82,7 @@
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;libcocos2d.lib;libExtensions.lib;libCocosDenshion.lib;pthreadVCE2.lib;ws2_32.lib;jansson.lib;libpomelo.lib;libuv.lib;Psapi.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;libcocos2d.lib;libExtensions.lib;libCocosDenshion.lib;pthreadVCE2.lib;ws2_32.lib;jansson.lib;libpomelo.lib;libuv.lib;Psapi.lib;Iphlpapi.lib;libcurl_imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,6 +132,7 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\src\json\json_server.cpp" />
+    <ClCompile Include="..\src\net\net_http_impl.cpp" />
     <ClCompile Include="..\src\net\net_impl.cpp" />
     <ClCompile Include="..\src\ui\login_scene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\src\json\json_base.h" />
     <ClInclude Include="..\src\json\json_server.h" />
+    <ClInclude Include="..\src\net\net_http_impl.h" />
     <ClInclude Include="..\src\net\net_impl.h" />
     <ClInclude Include="..\src\ui\login_scene.h" />
     <ClInclude Include="..\src\util\msg.h" />

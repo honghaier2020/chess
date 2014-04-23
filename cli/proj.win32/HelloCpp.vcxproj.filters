@@ -44,6 +44,9 @@
     <ClCompile Include="..\src\json\json_server.cpp">
       <Filter>src\json</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\net\net_http_impl.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -72,6 +75,9 @@
     </ClInclude>
     <ClInclude Include="..\src\util\msg.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\net\net_http_impl.h">
+      <Filter>src\net</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

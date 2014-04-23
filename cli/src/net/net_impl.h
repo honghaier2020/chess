@@ -2,7 +2,7 @@
 	created:	2014/04/13
 	created:	13:4:2014   14:06
 	file base:	net_impl
-	file ext:	cpp
+	file ext:	h
 	author:		King Lee
 	
 	purpose:	implement a net interface to communicate with server. it a simple wrapped for libpomelo.
