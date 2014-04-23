@@ -19,3 +19,37 @@
 *.exe
 *.out
 *.app
+
+# General file
+*.ilk
+*.pdb
+*.exp
+
+# VS2012 project file
+*.opensdf
+*.sdf
+*.suo
+
+# Others
+*.log
+srv/.idea/
+srv/game-server/node_modules/
+srv/web-server/node_modules/
+cli/cocos2dx/
+cli/external/
+cli/CocosDenshion/
+cli/extensions/
+cli/scripting/
+cli/plugin/
+cli/tools/
+cli/samples/
+cli/Debug.win32/
+cli/proj.win32/Debug.win32/
+cli/proj.win32/Default/
+cli/libpomelo/Default/
+cli/ipch/
+cli/libpomelo/deps/jansson/Default/
+cli/libpomelo/deps/uv/Default/
+cli/Resources/clientProtos
+cli/Resources/protoVersion
+cli/Resources/serverProtos
