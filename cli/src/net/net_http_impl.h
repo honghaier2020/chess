@@ -27,6 +27,11 @@ namespace chess{
 		//	destroy instance
 		static void destroy();
 
+		//	connect to server
+		bool connect(const char* __url);
+
+		static size_t write_data(void* __buffer, size_t __size, size_t __nmemb, void* __userp);
+
 	private:
 		static NetHttpImpl* inst_;
 

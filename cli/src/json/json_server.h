@@ -25,10 +25,14 @@ namespace chess
 
 		unsigned int port() const;
 
+		const char* url() const;
+
 	private:
 		static JsonServer* server_;
 
 		const char* host_;
+
+		const char* url_;
 
 		unsigned int port_;
 	};

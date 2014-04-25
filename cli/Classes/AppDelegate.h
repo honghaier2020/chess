@@ -38,6 +38,8 @@ public:
 	//	connect server 
 	void connect(const char* __host,unsigned short __port);
 
+	void connect(const char* __url);
+
 	//	send a message to server,just a test
 	void do_request(json_t* __msg);
 

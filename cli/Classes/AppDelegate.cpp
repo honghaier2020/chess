@@ -30,6 +30,7 @@ THE SOFTWARE.
 #include "HelloWorldScene.h"
 #include "AppMacros.h"
 #include "../src/net/net_impl.h"
+#include "../src/net/net_http_impl.h"
 #include "../src/ui/login_scene.h"
 #include "../src/json/json_server.h"
 #include "../src/util/msg.h"
@@ -44,6 +45,7 @@ AppDelegate::AppDelegate() {
 AppDelegate::~AppDelegate() 
 {
 	chess::NetImpl::destroy();
+	chess::NetHttpImpl::destroy();
 	chess::JsonServer::destroy();
 }
 
@@ -111,6 +113,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	if(__json_server)
 	{
 		this->connect(__json_server->host(),__json_server->port());
+		this->connect(__json_server->url());
 	}
 	
 	if(0){
@@ -147,6 +150,12 @@ void AppDelegate::applicationWillEnterForeground() {
 void AppDelegate::connect( const char* __host,unsigned short __port )
 {
 	chess::NetImpl::instance()->connect(__host,__port);
+	
+}
+
+void AppDelegate::connect( const char* __url )
+{
+	chess::NetHttpImpl::instance()->connect(__url);
 }
 
 void AppDelegate::do_request(json_t* __msg)
