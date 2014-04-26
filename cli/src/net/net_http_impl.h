@@ -18,7 +18,7 @@
 		});
 		res.writeHead(200, {'Content-Type': 'text/html'}); 
 		res.write('<h1>hi,</h1>'); 
-		res.end('<p>I have get id. many thanks</p>'); 
+		res.end('<p>I have get data. many thanks</p>'); 
 	}).listen(3000); 
 	console.log("HTTP server is listening at port 3000."); 
 	

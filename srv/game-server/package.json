@@ -3,7 +3,10 @@
     "version":"0.0.1",
     "private":false,
     "dependencies":{
-        "pomelo":"0.9.5"
+        "pomelo":"0.9.5",
+		"redis":"0.10.1",
+		"generic-pool":"2.0.4",
+		"underscore": "~1.4.4"
     }
 }
 
