@@ -126,6 +126,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		// decref for json object
 		json_decref(__msg_id);
 		this->do_request(__msg);
+
+		//	post data to http server
+		int __val = 9999;
+		this->set_user_data(&__val);
+		this->do_post("hi, I will post some data, are you ready!");
 	}
 
 	return true;
@@ -166,4 +171,14 @@ void AppDelegate::do_request(json_t* __msg)
 void AppDelegate::do_notify()
 {
 	chess::NetImpl::instance()->do_notify();
+}
+
+void AppDelegate::do_post(void* __data)
+{
+	chess::NetHttpImpl::instance()->post(__data);
+}
+
+void AppDelegate::set_user_data( void* __user_data )
+{
+	chess::NetHttpImpl::instance()->write_data(__user_data);
 }

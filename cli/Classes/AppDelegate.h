@@ -45,6 +45,13 @@ public:
 
 	//	send a notify to server,just a test also
 	void do_notify();
+
+	//	for http
+	//	send a post to http server
+	void do_post(void* __data);
+
+	//	set user data
+	void set_user_data(void* __user_data);
 };
 
 #endif // _APP_DELEGATE_H_
