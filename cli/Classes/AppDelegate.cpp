@@ -134,7 +134,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 			//	post data to http server
 			int __val = 9999;
 			this->set_user_data(&__val);
-			this->do_post("hi, I will post some data, are you ready!");
+			json_t* __msg = json_object();
+			json_t* __msg_id = json_integer(MSG_ID::MSG_MAX);
+			json_object_set(__msg, "msg_id", __msg_id);
+			this->do_post(/*"hi, I will post some data, are you ready!"*/json_dumps(__msg,0));
+			// decref for json object
+			json_decref(__msg_id);
 		}
 	}
 
