@@ -104,7 +104,7 @@ function show(){
     }, 5000);
 }
 
-show();
+//show();
 
 module.exports = {
     configure : configure,

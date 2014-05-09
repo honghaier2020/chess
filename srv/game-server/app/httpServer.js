@@ -1,5 +1,5 @@
-var http = require( 'http' );
-var qs = require( 'querystring' );
+var http = require("http");
+var qs = require("querystring");
 
 var connector = function() {
 	this.server = null;
@@ -7,6 +7,7 @@ var connector = function() {
 };
 
 connector.prototype.createHttpServer = function() {
+    var self = this;
 	this.server = http.createServer(function(req, res) {
 		
 		var client_ip = req.connection.remoteAddress;
@@ -16,8 +17,12 @@ connector.prototype.createHttpServer = function() {
 				break;
 			}
 			case 'POST':{
-				this.parsePost(req,res,function(args){
-					this.httpMessage();
+                self.parsePost(req,res,function(args){
+                    self.httpMessage(client_ip,req.url,args,function(){
+                            res.writeHead(200, {'Content-Type': 'text/html'});
+                            res.write('<h1>hi,</h1>');
+                            res.end('<p>I have get data. many thanks</p>');
+                        },req,res);
 				});
 				break;
 			}
@@ -43,6 +48,8 @@ connector.prototype.parsePost = function(req,res,cb){
 };
 
 connector.prototype.httpMessage = function(client_ip,url,args,cb,req,res){
-	var msg = JSON.parse( args.msg );
 	console.log(args);
+    cb();
 };
+
+module.exports = connector;
