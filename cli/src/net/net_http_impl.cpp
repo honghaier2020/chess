@@ -28,7 +28,6 @@ namespace chess
 	{
 		if(inst_)
 		{
-			inst_->clearup();
 			delete inst_;
 			inst_ = NULL;
 		}
@@ -39,47 +38,31 @@ namespace chess
 		if(curl_)
 		{
 			curl_easy_setopt(curl_, CURLOPT_URL, __url);
+			/* example.com is redirected, so we tell libcurl to follow redirection */ 
+			curl_easy_setopt(curl_, CURLOPT_FOLLOWLOCATION, 1L);
 
-			curl_easy_setopt( curl_, CURLOPT_WRITEFUNCTION, fun_write_data );
+			/* Now specify the POST data */
+			curl_easy_setopt(curl_, CURLOPT_POSTFIELDS, "name=daniel&project=curl");
+
+			curl_easy_setopt( curl_, CURLOPT_WRITEFUNCTION, write_data );
+
+			/* Perform the request, res will get the return code */ 
+			res_ = curl_easy_perform(curl_);
+			/* Check for errors */ 
+			if(res_ != CURLE_OK)
+				fprintf(stderr, "curl_easy_perform() failed: %s\n",
+				curl_easy_strerror(res_));
+
+			/* always cleanup */ 
+			curl_easy_cleanup(curl_);
 		}
 		return true;
 	}
 
-	size_t NetHttpImpl::fun_write_data( void* __buffer, size_t __size, size_t __nmemb, void* __userp )
+	size_t NetHttpImpl::write_data( void* __buffer, size_t __size, size_t __nmemb, void* __userp )
 	{
-		int* __val = static_cast<int*>(__userp);
 		char __data[512] = {};
-		strcpy(__data,(const char*)__buffer);
+		strcpy(__data,(const char*)__userp);
 		return __size;
-	}
-
-	void NetHttpImpl::_check_error()
-	{
-		/* Check for errors */ 
-		if(res_ != CURLE_OK)
-		{
-			fprintf(stderr, "curl_easy_perform() failed: %s\n",
-				curl_easy_strerror(res_));
-		}
-	}
-
-	void NetHttpImpl::write_data(void* __user_data)
-	{
-		curl_easy_setopt( curl_, CURLOPT_WRITEDATA, __user_data );
-	}
-
-	void NetHttpImpl::clearup()
-	{
-		/* always cleanup */ 
-		curl_easy_cleanup(curl_);
-	}
-
-	void NetHttpImpl::post( void* __data )
-	{
-		/* Now specify the POST data */
-		curl_easy_setopt(curl_, CURLOPT_POSTFIELDS, __data);
-		/* Perform the request, res will get the return code */ 
-		res_ = curl_easy_perform(curl_);
-		_check_error();
 	}
 }
