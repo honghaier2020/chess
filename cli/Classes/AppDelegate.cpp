@@ -30,7 +30,10 @@ THE SOFTWARE.
 #include "HelloWorldScene.h"
 #include "AppMacros.h"
 #include "../src/net/net_impl.h"
+<<<<<<< HEAD
 #include "../src/net/net_http_impl.h"
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 #include "../src/ui/login_scene.h"
 #include "../src/json/json_server.h"
 #include "../src/util/msg.h"
@@ -45,7 +48,10 @@ AppDelegate::AppDelegate() {
 AppDelegate::~AppDelegate() 
 {
 	chess::NetImpl::destroy();
+<<<<<<< HEAD
 	chess::NetHttpImpl::destroy();
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 	chess::JsonServer::destroy();
 }
 
@@ -113,13 +119,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	if(__json_server)
 	{
 		this->connect(__json_server->host(),__json_server->port());
+<<<<<<< HEAD
 		this->connect(__json_server->url());
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 	}
 	
 	if(0){
 		this->do_notify();
 	}
 	else{
+<<<<<<< HEAD
 		if(0)
 		{
 			json_t* __msg = json_object();
@@ -141,6 +151,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 			// decref for json object
 			json_decref(__msg_id);
 		}
+=======
+		json_t* __msg = json_object();
+		json_t* __msg_id = json_integer(MSG_ID::MSG_LOGIN);
+		json_object_set(__msg, "msg_id", __msg_id);
+		// decref for json object
+		json_decref(__msg_id);
+		this->do_request(__msg);
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 	}
 
 	return true;
@@ -165,12 +183,15 @@ void AppDelegate::applicationWillEnterForeground() {
 void AppDelegate::connect( const char* __host,unsigned short __port )
 {
 	chess::NetImpl::instance()->connect(__host,__port);
+<<<<<<< HEAD
 	
 }
 
 void AppDelegate::connect( const char* __url )
 {
 	chess::NetHttpImpl::instance()->connect(__url);
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 }
 
 void AppDelegate::do_request(json_t* __msg)
@@ -181,6 +202,7 @@ void AppDelegate::do_request(json_t* __msg)
 void AppDelegate::do_notify()
 {
 	chess::NetImpl::instance()->do_notify();
+<<<<<<< HEAD
 }
 
 void AppDelegate::do_post(void* __data)
@@ -192,3 +214,6 @@ void AppDelegate::set_user_data( void* __user_data )
 {
 	chess::NetHttpImpl::instance()->write_data(__user_data);
 }
+=======
+}
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039

@@ -1,5 +1,8 @@
 var pomelo = require('pomelo');
+<<<<<<< HEAD
 var httpServer = require('./app/httpServer');
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 /**
  * Init app for client.
  */
@@ -18,11 +21,14 @@ app.configure('production|development', 'connector', function(){
     app.loadConfig('redis', app.getBase() + '/config/redis.json');
     console.log("config load for redis  %s", app.getBase() + '/config/redis.json');
     require('./app/nosql/redis_pools').configure(app.get('redis'));
+<<<<<<< HEAD
 
     //  create http server
     var http = new httpServer();
     http.createHttpServer();
     app.set('httpServer',http);
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 });
 
 // start app

@@ -25,15 +25,21 @@ namespace chess
 
 		unsigned int port() const;
 
+<<<<<<< HEAD
 		const char* url() const;
 
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 	private:
 		static JsonServer* server_;
 
 		const char* host_;
 
+<<<<<<< HEAD
 		const char* url_;
 
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 		unsigned int port_;
 	};
 }

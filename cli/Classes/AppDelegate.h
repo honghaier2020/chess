@@ -38,13 +38,17 @@ public:
 	//	connect server 
 	void connect(const char* __host,unsigned short __port);
 
+<<<<<<< HEAD
 	void connect(const char* __url);
 
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 	//	send a message to server,just a test
 	void do_request(json_t* __msg);
 
 	//	send a notify to server,just a test also
 	void do_notify();
+<<<<<<< HEAD
 
 	//	for http
 	//	send a post to http server
@@ -52,6 +56,8 @@ public:
 
 	//	set user data
 	void set_user_data(void* __user_data);
+=======
+>>>>>>> 5ff5a6570fc5d0c4a7ba04dfb9ea80f6cd3d9039
 };
 
 #endif // _APP_DELEGATE_H_
