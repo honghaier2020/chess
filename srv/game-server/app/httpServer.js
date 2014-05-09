@@ -1,4 +1,5 @@
 var http = require( 'http' );
+var qs = require( 'querystring' );
 
 var connector = function() {
 	this.server = null;
@@ -15,7 +16,7 @@ connector.prototype.createHttpServer = function() {
 				break;
 			}
 			case 'POST':{
-				parsePost(req,res,function(args){
+				this.parsePost(req,res,function(args){
 					this.httpMessage();
 				});
 				break;
@@ -37,7 +38,7 @@ connector.prototype.parsePost = function(req,res,cb){
     
     req.on('end', function() {
         var str = chunks.join('');
-        endcb([req.url, qs.parse(str)]);
+        cb([req.url, qs.parse(str)]);
     });
 };
 
